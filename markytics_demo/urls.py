@@ -17,9 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from django.contrib.auth.views import LoginView
 from users import views as userview
+from incident import views as incident_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/',userview.home,name="home"),
-    path("login/",LoginView.as_view(template_name="users/login.html"),name="login")
+    path("login/",LoginView.as_view(template_name="users/login.html"),name="login"),
+    path('newincident/',incident_view.NewIncidentView.as_view(),name="new_incident")
+
 ]
